@@ -1,0 +1,44 @@
+baseURL = 'https://memoriasit.com/blog/'
+languageCode = "en-us"
+theme = "hugo-theme-terminal"
+paginate = 5
+
+[params]
+  contentTypeName = "posts"
+  themeColor = "blue"
+  showMenuItems = 2
+  fullWidthTheme = false
+  centerTheme = true
+  showLanguageSelector = false
+
+[languages]
+  [languages.en]
+    [languages.en.params]
+      title = "MemoriasIT"
+      subtitle = "Blog posts for the website MemoriasIT"
+      keywords = "MemoriasIT, memorias de un informático, programming, software"
+      copyright = " memorias de un informático © 2017"
+      menuMore = "Show more"
+      readMore = "Read more"
+      readOtherPosts = "Read other posts"
+
+    [languages.en.params.logo]
+      logoText = "MemoriasIt"
+      logoHomeLink = "/"
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about"
+      [[languages.en.menu.main]]
+        identifier = "showcase"
+        name = "Showcase"
+        url = "/showcase"
+
+
+
+[services]
+  [services.disqus]
+    shortname = 'memoriasit'
+
