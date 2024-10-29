@@ -1,11 +1,11 @@
 baseURL = 'https://memoriasit.com/blog/'
 languageCode = "en-us"
-theme = "hugo-theme-terminal"
+theme = "terminal"
 paginate = 5
 
 [params]
   contentTypeName = "posts"
-  themeColor = "blue"
+  themeColor = "green"
   showMenuItems = 2
   fullWidthTheme = false
   centerTheme = true
@@ -24,13 +24,21 @@ paginate = 5
 
     [languages.en.params.logo]
       logoText = "MemoriasIt"
-      logoHomeLink = "/"
+      logoHomeLink = "/blog/"
 
     [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "home"
+        name = "Home"
+        url = "/"
       [[languages.en.menu.main]]
         identifier = "about"
         name = "About"
         url = "/about"
+      [[languages.en.menu.main]]
+        identifier = "blog"
+        name = "Blog"
+        url = "/blog"
       [[languages.en.menu.main]]
         identifier = "showcase"
         name = "Showcase"
