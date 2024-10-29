@@ -27,18 +27,7 @@ paginate = 5
       logoHomeLink = "/blog/"
 
     [languages.en.menu]
-      [[languages.en.menu.main]]
-        identifier = "home"
-        name = "Home"
-        url = "/"
-      [[languages.en.menu.main]]
-        identifier = "about"
-        name = "About"
-        url = "/about"
-      [[languages.en.menu.main]]
-        identifier = "blog"
-        name = "Blog"
-        url = "/blog"
+      # Extra menu items can be added here, but main elements are already in the file: menu.html
       [[languages.en.menu.main]]
         identifier = "showcase"
         name = "Showcase"
