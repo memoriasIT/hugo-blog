@@ -206,6 +206,8 @@ jobs:
 
       - name: ⚙️Build APK
         working-directory: ${{inputs.working_directory}}/android
+        # In this PR check pipeline we are only worried about if the app builds,
+        # for that reason, I don't worry about flavors or any input
         run: fvm flutter build apk
 
 # TODO JOB SUMMARY
