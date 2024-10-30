@@ -206,7 +206,7 @@ jobs:
 
       - name: ⚙️Build APK
         working-directory: ${{inputs.working_directory}}/android
-        run: fvm flutter build apk --flavor "prod"
+        run: fvm flutter build apk
 
 # TODO JOB SUMMARY
 # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#adding-a-job-summary
