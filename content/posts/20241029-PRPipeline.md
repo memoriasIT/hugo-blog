@@ -72,8 +72,18 @@ on:
       # Git clone fetch-depth
       fetchDepth:
         required: false
+        type: number
+        default: 50
+      # Paths excluded from coverage
+      coverage_excludes:
+        required: false
         type: string
-        default: "50"
+        default: ""
+      # Minimum coverage required
+      min_coverage:
+        required: false
+        type: number
+        default: 0
 
 
   # Run workflow if pull request targets main/develop, master or a release branch.
