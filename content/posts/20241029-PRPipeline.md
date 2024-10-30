@@ -85,7 +85,6 @@ on:
         type: number
         default: 0
 
-
   # Run workflow if pull request targets main/develop, master or a release branch.
   branches:
     - main
@@ -110,7 +109,6 @@ jobs:
     # building for iOS (that requires Mac OS) or not. In this case, we don't care.
     # This is a great way to save costs if you are not self-hosting.
     runs-on: [android, ios]
-
     steps:
         # feat(MIT-33): Add `Button` component
         # ^    ^    ^
@@ -131,7 +129,6 @@ jobs:
           # label "ignore-semantic-pull-request" to it to skip the check.
           ignoreLabels: |
             ignore-semantic-pull-request
-
 
   vulnerability-checker:
     name: 🦠️Vulnerability check
@@ -159,6 +156,7 @@ jobs:
           osv-scanner -lockfile=./pubspec.lock
 
   build:
+    name: 🔨 Build
     defaults:
       run:
         working-directory: ${{inputs.working_directory}}
