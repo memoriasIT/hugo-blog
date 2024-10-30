@@ -221,3 +221,19 @@ jobs:
 # TODO JOB SUMMARY
 # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#adding-a-job-summary
 ```
+
+## How to use this workflow in your project?
+
+```yaml
+name: "Your project name"
+name: Reusable workflow
+
+on:
+  workflow_call:
+
+jobs:
+  call-another-reusable:
+    uses: octo-org/example-repo/.github/workflows/another-reusable.yml@v1
+```
+
+https://docs.github.com/en/actions/sharing-automations/creating-workflow-templates-for-your-organization
