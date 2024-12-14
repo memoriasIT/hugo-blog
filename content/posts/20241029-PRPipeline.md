@@ -3,6 +3,7 @@ title = "My PR check pipeline"
 date = "2024-10-29"
 author = "memoriasIT"
 description = "As someone who works in a consultancy firm, I create many projects. This process can be tedious and repetitive. That's why creating \"building blocks\" can be really helpful..."
+draft = true
 +++
 
 As someone who works in a consultancy firm, I create many projects. This process can be tedious and repetitive. That's why creating "building blocks" can be really helpful.
@@ -18,8 +19,9 @@ Let's first make a list of all the requirements I would like my action to have:
 
 - **Simple:** Understanding the actions should not require a lot of knowledge.
 - **Reusable:** There might be small differences between projects (architecture, versions, requirements, etc.). The actions should be flexible enough to account for that.
+- **Templates:** Projects should not have to copy and paste the workflows from one project to another. This makes upgrading and modifying all workflows painful.
 
-## What do I specifically want my PR to do?
+## What do I specifically want my PR workflow to do?
 
 - **Vulnerability Scanner:** A couple of months ago, I discovered [OSV-scanner](https://security.googleblog.com/2022/12/announcing-osv-scanner-vulnerability.html). This scanner, made by Google, aggregates multiple vulnerability databases to find existing vulnerabilities affecting your project's dependencies. Pub.dev is included, so that's awesome for me! But if you do JS, Go, Rust, Python... it will be great for you too!
 
