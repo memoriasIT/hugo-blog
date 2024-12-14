@@ -1,8 +1,8 @@
-<a
-  href="{{ if $.Site.Params.Logo.LogoHomeLink }}{{ $.Site.Params.Logo.LogoHomeLink }}{{else}}{{ $.Site.BaseURL }}{{ end }}">
+<a href="{{ if $.Site.Params.Logo.LogoHomeLink }}{{ $.Site.Params.Logo.LogoHomeLink }}{{else}}{{ $.Site.BaseURL }}{{ end }}"
+  aria-label="Go to the homepage">
   <div class="logo">
     <!-- The theme supports text logo, I would rather use my own logo, but future me can change this just by uncommenting this -->
     <!-- {{ with $.Site.Params.Logo.logoText }}{{ . }}{{ else }}Terminal{{ end }} -->
-    <img src="https://memoriasit.com/blog/logo.avif" alt="" style="width: 180px; height: auto;">
+    <img src="https://memoriasit.com/blog/logo.avif" alt="MemoriasIT" style="width: 180px; height: auto;">
   </div>
 </a>
