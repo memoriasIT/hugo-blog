@@ -1,7 +1,7 @@
 .footer {
   padding: 40px 0;
   flex-grow: 0;
-  opacity: 0.5;
+  opacity: 0.75;
 }
 
 .footer__inner {
