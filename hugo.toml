@@ -39,3 +39,6 @@ paginate = 5
   [services.disqus]
     shortname = 'memoriasit'
 
+  [services.googleAnalytics]
+    id = 'G-WSTDDX5THR'
+
