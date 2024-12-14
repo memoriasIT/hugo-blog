@@ -1,5 +1,5 @@
 +++
-title = "Scanning for vulnarabilities in your dependencies"
+title = "Scanning for vulnerabilities in your dependencies"
 date = "2024-12-13"
 author = "memoriasIT"
 description = ""
