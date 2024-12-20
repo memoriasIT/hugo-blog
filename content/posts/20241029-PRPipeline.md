@@ -3,7 +3,7 @@ title = "My PR check pipeline"
 date = "2024-10-29"
 author = "memoriasIT"
 description = "As someone who works in a consultancy firm, I create many projects. This process can be tedious and repetitive. That's why creating \"building blocks\" can be really helpful..."
-draft = true
+draft = false
 +++
 
 As someone who works in a consultancy firm, I create many projects. This process can be tedious and repetitive. That's why creating "building blocks" can be really helpful.
@@ -23,7 +23,7 @@ Let's first make a list of all the requirements I would like my action to have:
 
 ## What do I specifically want my PR workflow to do?
 
-- **Vulnerability Scanner:** A couple of months ago, I discovered [OSV-scanner](https://security.googleblog.com/2022/12/announcing-osv-scanner-vulnerability.html). This scanner, made by Google, aggregates multiple vulnerability databases to find existing vulnerabilities affecting your project's dependencies. Pub.dev is included, so that's awesome for me! But if you do JS, Go, Rust, Python... it will be great for you too!
+- **Vulnerability Scanner:** A couple of months ago, I discovered [OSV-scanner](https://security.googleblog.com/2022/12/announcing-osv-scanner-vulnerability.html). This scanner, made by Google, aggregates multiple vulnerability databases to find existing vulnerabilities affecting your project's dependencies. I actually made a blog post about it, [check it out here!](/blog/posts/20241213-osvscanner/)
 
 - **PR format:** I would like to make sure that the PR titles follow the same style for future search/reference. One common style to use is the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) spec.
 
@@ -110,7 +110,10 @@ jobs:
     # By tagging the runner we can use multiple runners according to if we are
     # building for iOS (that requires Mac OS) or not. In this case, we don't care.
     # This is a great way to save costs if you are not self-hosting.
-    runs-on: [android, ios]
+    # runs-on: [linux, macos]
+    # If you are using github images you can just pick one from their images here:
+    # https://github.com/actions/runner-images?tab=readme-ov-file#available-images
+    runs-on: ubuntu-24.04
     steps:
         # feat(MIT-33): Add `Button` component
         # ^    ^    ^
@@ -132,9 +135,11 @@ jobs:
           ignoreLabels: |
             ignore-semantic-pull-request
 
+  # I wrote a post for this in more detail, check it out here:
+  # https://memoriasit.com/blog/posts/20241213-osvscanner/
   vulnerability-checker:
     name: 🦠️Vulnerability check
-    runs-on: [android, ios]
+    runs-on: ubuntu-24.04
     steps:
         # Sets the SSH key to clone the repo
       - name: 🔑Setup repo SSH key
@@ -144,17 +149,23 @@ jobs:
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
           if_key_exists: ignore
 
-        # Checks out the code repo
+      # Checks out (clones) the code repo
       - name: 📚Checkout code
         uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
-        # Uses OSV-Scanner to find known vulnerabilities in packages
-        # This is not default in github runners (use brew or snap to get it)
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: "1.23.3"
+
+      # Use OSV-Scanner to find known vulnerabilities in packages
+      # This is not default in github runners if you use macOS just use brew (see my post for details)
       - name: 🦠️ Vulnerability Check
         run: |
+          go install github.com/google/osv-scanner/cmd/osv-scanner@v1
           osv-scanner -lockfile=./pubspec.lock
 
   build:
@@ -163,7 +174,7 @@ jobs:
       run:
         working-directory: ${{inputs.working_directory}}
 
-    runs-on: [android]
+    runs-on: ubuntu-24.04
 
     steps:
       - name: 🔑Setup repo SSH key
