@@ -3,7 +3,7 @@ title = "My PR check pipeline"
 date = "2024-10-29"
 author = "memoriasIT"
 description = "As someone who works in a consultancy firm, I create many projects. This process can be tedious and repetitive. That's why creating \"building blocks\" can be really helpful..."
-draft = false
+draft = true
 +++
 
 As someone who works in a consultancy firm, I create many projects. This process can be tedious and repetitive. That's why creating "building blocks" can be really helpful.
