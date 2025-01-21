@@ -1,6 +1,6 @@
 +++
 title = "Generating a changelog from your git commits"
-date = "2024-12-13"
+date = "2024-12-21"
 author = "memoriasIT"
 description = "If you do some kind of software development, you probably are familiar with changelogs. These changelogs are especially useful for other people who don’t work on your project to at a glance know what’s new in X version.\n\nHowever, maintaining this kind of files is always a pain and requires a lot of manual labor. Today, I will show you how we can achieve something similar with only using git."
 +++
